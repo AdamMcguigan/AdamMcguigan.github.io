@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/push.css">
+</head>
+
+<body background = "./img/Cyberpunk.jpg" >
+<canvas tabindex="1" id="game" width="1600" height="700" style="border: black 1px solid;">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+    <table>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button onmousedown="UpbuttonOnClick()" id="buttonUp" class="button yellow round">&#8593</button></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><button onmousedown="LeftbuttonOnClick()" id="buttonLeft" class="button blue round">&#8592</button></td>
+                <td>&nbsp;</td>
+                <td><button onmousedown="RightbuttonOnClick()" id="buttonRight" class="button red round">&#8594</button></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button onmousedown="DownbuttonOnClick()" id="buttonDown" class="button green round">&#8595</button></td>
+                <td>&nbsp;</td>
+            </tr>
+			<tr>
+        <td colspan="3" align="center">
+          <div class="custom-select" style="width:200px;">
+            <select id="equipment" onchange="weaponSelection()">
+            </select>
+          </div>
+        </td>
+      </tr>
+	   <tr>
+        <td colspan="3" align="center">
+          <label class="switch">
+            <input id="active" onclick="weaponSelection()" type="checkbox">
+            <span class="toggle"></span>
+          </label>
+        </td>
+      </tr>
+        </tbody>
+    </table>
+	<h1 id="HUD" onload="weaponSelection()"></h1>
+
+        <audio>
+            audio src="rightFinalOne.mp3" id="audio">
+        </audio>
+
+        <audio>
+            audio src="Cyberpunk 2077 Hype.mp3" id="cyberpunk">
+        </audio>
+
+        <audio>
+            audio src="C418 - Sweden - Minecraft Volume Alpha.mp3" id="minecraft">
+        </audio>
+
+        <audio>
+            audio src="Undertale - Megalovania.mp3" id="undertale">
+        </audio>
+</body>
+
+<script src="./js/scriptTwo.js"></script>
+
+</html>
