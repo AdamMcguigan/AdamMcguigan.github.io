@@ -31,7 +31,7 @@
 			<tr>
         <td colspan="3" align="center">
           <div class="custom-select" style="width:200px;">
-            <select id="equipment" onchange="weaponSelection()">
+            <select id="songs" onchange="musicSelection()">
             </select>
           </div>
         </td>
@@ -39,14 +39,14 @@
 	   <tr>
         <td colspan="3" align="center">
           <label class="switch">
-            <input id="active" onclick="weaponSelection()" type="checkbox">
+            <input id="active" onclick="musicSelection()" type="checkbox">
             <span class="toggle"></span>
           </label>
         </td>
       </tr>
         </tbody>
     </table>
-	<h1 id="HUD" onload="weaponSelection()"></h1>
+	<h1 id="HUD" onload="musicSelection()"></h1>
 
         <audio>
             audio src="rightFinalOne.mp3" id="audio">

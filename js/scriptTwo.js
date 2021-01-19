@@ -38,23 +38,23 @@ function drawHealthbar()
 }
 
 
-function weaponSelection() {
-  var selection = document.getElementById("equipment").value;
+function musicSelection() {
+  var selection = document.getElementById("songs").value;
   var active = document.getElementById("active");
   if (active.checked == true) 
   {
     document.getElementById("HUD").innerHTML = selection + " active ";
     console.log("Audio Active");
 	
-	if(selection === "Cyberpunk 2077")
+	if(selection === "Cyberpunk 2077 Hype.mp3")
 	{
 		cyberpunk.play();
 	}
-	if(selection === "minecraft")
+	if(selection === "C418 - Sweden - Minecraft Volume Alpha.mp3")
 	{
 		minecraft.play();
 	}
-	if(selection === "undertale")
+	if(selection === "Undertale - Megalovania.mp3")
 	{
 		undertale.play();
 	}
@@ -85,20 +85,20 @@ var options = [{
   },
   {
     "text": "Cyberpunk 2077",
-    "value": "Cyberpunk Music"
+    "value": "Cyberpunk 2077 Hype.mp3"
   },
   {
     "text": "Minecraft - Theme",
-    "value": "Longsword"
+    "value": "C418 - Sweden - Minecraft Volume Alpha.mp3"
   },
   {
     "text": "Undertale - Megalovania",
-    "value": "Pistol crossbow"
+    "value": "Undertale - Megalovania.mp3"
   }
 ];
 
 
-var selectBox = document.getElementById('equipment');
+var selectBox = document.getElementById('songs');
 
 for (var i = 0; i < options.length; i++) 
 {
