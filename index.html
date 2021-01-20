@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Test Form</title>
-</head>
-<body>
+<body onload="onPageLoad()">
 
-<form action="https://AdamMcguigan.github.io/example" method="GET" target="_blank">
+<h1>Request Parameters</h1>
 
-<input type="text" name="q" value="pwa">
+<form action="https://adammcguigan.github.io/" method="get">
+    <input type="text" value="test" name="gamertag">
+    <button type="submit">Submit</button>
+  </form>
+    
 
-<input type="text" name="username">
-
-<input type="password" name="password">
-<br>
-
-<input type="radio" name="enemy" value="npc">NPC<br>
-<input type="radio" name="enemy" value="boss" checked>Boss
-<br>
-
-<input type="hidden" name="wallet" value="phil">
-
-<select name="enemy_color">​
-    <option value="Red">red</option>​
-    <option value="Green">green</option>​
-    <option value="BLUE">blue</option>​
-</select>
-<br>
-
-<button type="reset">Reset</button>
-<button type="submit">Send my info to Google</button>
-
-</form>
+<script>
+function onPageLoad() {
+var href = window.location.href;
+    alert(href);
+   
+    var protocol = window.location.protocol;
+    alert(protocol);
+   
+    var host = window.location.host;
+    alert(host);
+   
+   
+    var pathname = window.location.pathname;
+    alert(pathname);
+   
+    var search = window.location.search;
+    alert(search);
+   
+}
+</script>
 
 </body>
 </html>
