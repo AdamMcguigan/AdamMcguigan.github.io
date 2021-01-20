@@ -231,7 +231,16 @@ function animate()
 			
 			if(gameobjects[1].health <= 0)
 			{
+				context.clearRect(0,0, canvas.width, canvas.height);
+				gameobjects[0].x = 5000;
+				gameobjects[0].y = 5000;
+				gameobjects[1].x = 10000;
+				gameobjects[1].y = 10000;
 				context.drawImage(gameOverSprite,0,0,1600,700);
+				console.log("Drawing the game over sprite");
+				
+				
+				
 			}
 				
 }
@@ -372,17 +381,16 @@ function draw()
     // Draw each GameObject
     // console.log("Draw");
 	
-	if(gameobjects[1].health <= 0)
-	{
-		console.log("Drawing the game over sprite");
-		context.clearRect(0,0, canvas.width, canvas.height);
-		gameobjects[0].x = 5000;
-		gameobjects[0].y = 5000;
-		gameobjects[1].x = 10000;
-		gameobjects[1].y = 10000;
+	//if(gameobjects[1].health <= 0)
+	//{
+	//	console.log("Drawing the game over sprite");
+	//	context.clearRect(0,0, canvas.width, canvas.height);
+	//	gameobjects[0].x = 5000;
+	//	gameobjects[0].y = 5000;
+	//	gameobjects[1].x = 10000;
+	//	gameobjects[1].y = 10000;
 		
-		 //Ask for help with this 
-	}
+	//}
 	
 	
     for (i = 0; i < gameobjects.length; i++) 
