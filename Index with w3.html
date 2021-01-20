@@ -17,3 +17,41 @@
 
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html>
+<body onload="onPageLoad()">
+
+<h1>Request Parameters</h1>
+
+<form action="https://adammcguigan.github.io/example" method="get">
+    <input type="text" value="test" name="gamertag">
+    <button type="submit">Submit</button>
+  </form>
+    
+
+<script>
+function onPageLoad() 
+{
+var href = window.location.href;
+    alert(href);
+   
+    var protocol = window.location.protocol;
+    alert(protocol);
+   
+    var host = window.location.host;
+    alert(host);
+   
+   
+    var pathname = window.location.pathname;
+    alert(pathname);
+   
+    var search = window.location.search;
+    alert(search);
+   
+}
+</script>
+
+</body>
+</html>

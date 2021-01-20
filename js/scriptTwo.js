@@ -228,6 +228,11 @@ function animate()
 			}
 			
 			drawHealthbar();
+			
+			if(gameobjects[1].health <= 0)
+			{
+				context.drawImage(gameOverSprite,0,0,1600,700);
+			}
 				
 }
 
@@ -376,7 +381,7 @@ function draw()
 		gameobjects[1].x = 10000;
 		gameobjects[1].y = 10000;
 		
-		//context.drawImage(gameOverSprite,0,0,1920,1080); //Ask for help with this 
+		 //Ask for help with this 
 	}
 	
 	
