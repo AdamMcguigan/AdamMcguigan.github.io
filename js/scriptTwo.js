@@ -18,6 +18,24 @@ function GameObject(name, img, health)
     this.y = 0;
 }
 
+var url = document.location.href;
+var gamertag;
+
+function splitFunction() 
+{
+  //var str = "?gamer_tag=Phil";
+  var result = url.split("="); // Splits string based on =
+  //alert(result[0]);
+ // alert(result[1]);
+ gamertag = result[1];
+ 
+}
+
+splitFunction();
+
+var string1 = "Hello";
+var string2 = gamertag;
+var username = string1.concat(string2);
 
 function drawHealthbar() 
 {
@@ -405,7 +423,7 @@ function draw()
 		
     }
 	
-	
+	context.fillText(username, 600,600);
 }
 
 
