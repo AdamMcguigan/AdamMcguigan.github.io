@@ -18,6 +18,7 @@ function GameObject(name, img, health)
     this.y = 0;
 }
 
+context.font = "30px Arial";
 var url = document.location.href;
 var gamertag;
 
@@ -33,7 +34,7 @@ function splitFunction()
 
 splitFunction();
 
-var string1 = "Hello";
+var string1 = "Hello ";
 var string2 = gamertag;
 var username = string1.concat(string2);
 
@@ -257,8 +258,6 @@ function animate()
 				context.drawImage(gameOverSprite,0,0,1600,700);
 				console.log("Drawing the game over sprite");
 				
-				
-				
 			}
 				
 }
@@ -283,64 +282,64 @@ function update()
                 console.log("Down");
 				console.log(gameobjects[i].name + " at x: " + gameobjects[i].x + " Y: ");
             }
-				if(gamerInput.action === "Left")
-				{
-					gameobjects[0].x -= 5;
-					console.log("Left");
-				}
-					if(gamerInput.action === "Right")
-					{
-						gameobjects[0].x += 5;
-						console.log("Right");
-					}
-					//movement to follow the player
-					  if(gameobjects[0].x > gameobjects[1].x)
-						{
-							gameobjects[1].x +=1;
-						}
-							//movement to follow the player
-							if(gameobjects[0].x < gameobjects[1].x)
-							{
-								gameobjects[1].x -=1;
-							}
-								//movement to follow the player
-								if(gameobjects[0].y > gameobjects[1].y)
-								{
-									gameobjects[1].y +=1;
-								}
-									//movement to follow the player
-									if(gameobjects[0].y < gameobjects[1].y)
-									{
-										gameobjects[1].y -=1;
-									}
-										//Boundary Checking
-										if(gameobjects[0].x >= 1800 || gameobjects[0].y >= 800)
-										{
-											gameobjects[0].x = 50;
-											gameobjects[0].y = 50;
+			if(gamerInput.action === "Left")
+			{
+				gameobjects[0].x -= 5;
+				console.log("Left");
+			}
+			if(gamerInput.action === "Right")
+			{
+				gameobjects[0].x += 5;
+				console.log("Right");
+			}
+			//movement to follow the player
+			if(gameobjects[0].x > gameobjects[1].x)
+			{
+				gameobjects[1].x +=1;
+			}
+			//movement to follow the player
+			if(gameobjects[0].x < gameobjects[1].x)
+			{
+				gameobjects[1].x -=1;
+			}
+			//movement to follow the player
+			if(gameobjects[0].y > gameobjects[1].y)
+			{
+				gameobjects[1].y +=1;
+			}
+			//movement to follow the player
+			if(gameobjects[0].y < gameobjects[1].y)
+			{
+				gameobjects[1].y -=1;
+			}
+			//Boundary Checking
+			if(gameobjects[0].x >= 1800 || gameobjects[0].y >= 800)
+			{
+				gameobjects[0].x = 50;
+				gameobjects[0].y = 50;
 											
-										}
-											//boundary checking
-											if(gameobjects[0].x <= 0 || gameobjects[0].y <= 0)
-											{
-												gameobjects[0].x = 1200;
-												gameobjects[0].y = 200;
+			}
+			//boundary checking
+			if(gameobjects[0].x <= 0 || gameobjects[0].y <= 0)
+			{
+				gameobjects[0].x = 1200;
+				gameobjects[0].y = 200;
 												
-											}
-												if(gameobjects[0].x == gameobjects[1].x && gameobjects[0].y == gameobjects[1].y)
-													{
-														gameobjects[1].health -= 20;
-														playerHealth -= 10;
-														console.log("-20 health");
-														gameobjects[1].x = 1200;
-														gameobjects[1].y = 650;
+			}
+			if(gameobjects[0].x == gameobjects[1].x && gameobjects[0].y == gameobjects[1].y)
+			{
+				gameobjects[1].health -= 20;
+				playerHealth -= 10;
+				console.log("-20 health");
+				gameobjects[1].x = 1200;
+				gameobjects[1].y = 650;
 														
-													}
-														else 
-														{
-															console.log(gameobjects[i].name + " at X: " + gameobjects[i].x + "  Y: " + gameobjects[i].y); 
-															console.log(gameobjects[i].name + " player Health: " + gameobjects[0].health + "NPC HEALTH" + gameobjects[1].health);
-														}
+			}
+			else 
+			{
+				console.log(gameobjects[i].name + " at X: " + gameobjects[i].x + "  Y: " + gameobjects[i].y); 
+				console.log(gameobjects[i].name + " player Health: " + gameobjects[0].health + "NPC HEALTH" + gameobjects[1].health);
+			}
     }
 }
 
@@ -394,23 +393,7 @@ var x = 0,
 // Modify to Draw to Screen
 function draw() 
 {
-    // Clear Canvas
-    // Iterate through all GameObjects
-    // Draw each GameObject
-    // console.log("Draw");
-	
-	//if(gameobjects[1].health <= 0)
-	//{
-	//	console.log("Drawing the game over sprite");
-	//	context.clearRect(0,0, canvas.width, canvas.height);
-	//	gameobjects[0].x = 5000;
-	//	gameobjects[0].y = 5000;
-	//	gameobjects[1].x = 10000;
-	//	gameobjects[1].y = 10000;
-		
-	//}
-	
-	
+   
     for (i = 0; i < gameobjects.length; i++) 
 	{
 		
@@ -423,7 +406,7 @@ function draw()
 		
     }
 	
-	context.fillText(username, 600,600);
+	context.fillText(username, 300,1000);
 }
 
 
