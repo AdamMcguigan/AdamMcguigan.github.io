@@ -239,7 +239,7 @@ function animate()
         initial = current; // reset initial
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
-		context.fillText(username, 300,1000);
+		
 			for(i = 0; i < gameobjects.length; i++)
 			{
 				context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0 ,40, 55, gameobjects[0].x, gameobjects[0].y, 190, 190); //change the values just after current frame to change whats drawn for the sprites
@@ -267,6 +267,7 @@ function update()
     // Iterate through all GameObjects
     // Updating position and gamestate
     // console.log("Update");
+	context.fillText(username, 300,1000);
     for (i = 0; i < gameobjects.length; i++) 
 	{
 	  
@@ -340,6 +341,7 @@ function update()
 				console.log(gameobjects[i].name + " at X: " + gameobjects[i].x + "  Y: " + gameobjects[i].y); 
 				console.log(gameobjects[i].name + " player Health: " + gameobjects[0].health + "NPC HEALTH" + gameobjects[1].health);
 			}
+			
     }
 }
 
