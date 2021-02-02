@@ -239,7 +239,7 @@ function animate()
         initial = current; // reset initial
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
-		
+		context.fillText(username, 300,1000);
 			for(i = 0; i < gameobjects.length; i++)
 			{
 				context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0 ,40, 55, gameobjects[0].x, gameobjects[0].y, 190, 190); //change the values just after current frame to change whats drawn for the sprites
@@ -406,7 +406,7 @@ function draw()
 		
     }
 	
-	context.fillText(username, 300,1000);
+	
 }
 
 
