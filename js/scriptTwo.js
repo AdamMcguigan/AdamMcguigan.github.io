@@ -239,7 +239,7 @@ function animate()
         initial = current; // reset initial
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
-		context.fillText(username, 300,1000);
+		context.fillText(username, 600,1000);
 		
 			for(i = 0; i < gameobjects.length; i++)
 			{
