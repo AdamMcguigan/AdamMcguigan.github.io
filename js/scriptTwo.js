@@ -239,6 +239,7 @@ function animate()
         initial = current; // reset initial
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
+		context.fillText(username, 300,1000);
 		
 			for(i = 0; i < gameobjects.length; i++)
 			{
@@ -267,7 +268,7 @@ function update()
     // Iterate through all GameObjects
     // Updating position and gamestate
     // console.log("Update");
-	context.fillText(username, 300,1000);
+	
     for (i = 0; i < gameobjects.length; i++) 
 	{
 	  
