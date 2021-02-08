@@ -9,6 +9,7 @@ var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var playerHealth = 110;
 
+//The GameObjects
 function GameObject(name, img, health) 
 {
     this.name = name;
@@ -22,6 +23,7 @@ context.font = "30px Arial";
 var url = document.location.href;
 var gamertag;
 
+//Function to split a string and output the players gamertag
 function splitFunction() 
 {
   //var str = "?gamer_tag=Phil";
@@ -38,6 +40,97 @@ var string1 = "Hello ";
 var string2 = gamertag;
 var username = string1.concat(string2);
 
+///////////////////////////////////////////////////////////////////////////////////////////
+function onPageLoad() {
+  // Using JSON and Local Storage for
+  // GameState Management
+  var gameObjects = {
+    'pawn': 1,
+    'worker': 2,
+    'boss': 3
+  };
+
+  // Game objects as JSON
+  localStorage.setItem('gameObjects', JSON.stringify(gameObjects));
+
+  // Retrieve Games object as from storage
+  var npcObjects = localStorage.getItem('gameObjects');
+
+  console.log('npcObjects: ', JSON.parse(npcObjects));
+
+  // Reading Level Information from a file
+  var readJSONFromURL = function (url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+      var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+
+    xhr.send();
+  };
+
+  readJSONFromURL('./data/level.json', function (err, data) 
+  {
+    if (err != null) 
+	{
+      console.error(err);
+    } 
+	else 
+	{
+      var text = data["Pawns"];
+      console.log(text);
+      var text = data["Grunts"];
+      console.log(text);
+      var text = data["Boss"];
+      console.log(text);
+    }
+  });
+
+  // Reading File from a Server
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText);
+      document.getElementById("NPC").innerHTML = data[0];
+    }
+  };
+  
+  xmlhttp.open("GET", "./data/level.json", true);
+  xmlhttp.send();
+
+
+
+  updateScore();
+
+}
+
+// Update the player score
+function updateScore() 
+{
+  var current_score = localStorage.getItem('score');
+
+  if (isNaN(current_score)) {
+    localStorage.setItem('score', 0);
+    document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
+  } else {
+    localStorage.setItem('score', parseInt(current_score) + 1);
+    document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
+  }
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//function to draw the players health bar
 function drawHealthbar() 
 {
   var width = 100;
@@ -56,7 +149,7 @@ function drawHealthbar()
   context.fillRect(0, 0, fillVal * width, height);
 }
 
-
+//Function to draw the music selection box and setup the drop down boxes
 function musicSelection() {
   var selection = document.getElementById("songs").value;
   var active = document.getElementById("active");
@@ -143,7 +236,6 @@ function drawHealthbar() {
   context.fillRect(0, 0, fillVal * width, height);
 }
 
-//drawHealthbar();
 
 var gameOverSprite = new Image();
 gameOverSprite.src = "./img/gameOver.jpg";
@@ -239,7 +331,7 @@ function animate()
         initial = current; // reset initial
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
-		context.fillText(username, 600,1000);
+		context.fillText(username, 100,100);
 		
 			for(i = 0; i < gameobjects.length; i++)
 			{
