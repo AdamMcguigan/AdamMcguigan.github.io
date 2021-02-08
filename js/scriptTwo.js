@@ -8,6 +8,7 @@
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var playerHealth = 110;
+var score = 0;
 
 //The GameObjects
 function GameObject(name, img, health) 
@@ -41,7 +42,7 @@ var string2 = gamertag;
 var username = string1.concat(string2);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-function onPageLoad() {
+/* function onPageLoad() {
   // Using JSON and Local Storage for
   // GameState Management
   var gameObjects = {
@@ -116,15 +117,18 @@ function updateScore()
 {
   var current_score = localStorage.getItem('score');
 
-  if (isNaN(current_score)) {
+  if (isNaN(current_score)) 
+  {
     localStorage.setItem('score', 0);
     document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
-  } else {
+  } 
+  else 
+  {
     localStorage.setItem('score', parseInt(current_score) + 1);
     document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
   }
 
-}
+} */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -332,7 +336,15 @@ function animate()
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
 		context.fillText(username, 100,100);
+		context.fillText(score, 100,200);
 		
+		
+		//var scoreOutput = "Score = ";
+    
+		//var scoreString = scoreOutput.concat(score);
+   
+		//context.fillText(scoreString , 200, 20);
+			
 			for(i = 0; i < gameobjects.length; i++)
 			{
 				context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0 ,40, 55, gameobjects[0].x, gameobjects[0].y, 190, 190); //change the values just after current frame to change whats drawn for the sprites
@@ -450,6 +462,7 @@ function LeftbuttonOnClick()
 {
 	gamerInput = new GamerInput("Left");
 	audio.play();
+	score = score + 1;
 }
 
 //function for the right input
@@ -457,6 +470,7 @@ function RightbuttonOnClick()
 {
 	gamerInput = new GamerInput("Right");
 	audio.play();
+	score = score + 1;
 }
 
 //function for the up input
@@ -464,6 +478,7 @@ function UpbuttonOnClick()
 {
 	gamerInput = new GamerInput("Up");
 	audio.play();
+	score = score + 1;
 }
 
 //function for the down input 
@@ -471,6 +486,7 @@ function DownbuttonOnClick()
 {
 	gamerInput = new GamerInput("Down");
 	audio.play();
+	score = score + 1;
 }
 
 function ButtonUp()
@@ -501,7 +517,7 @@ function draw()
 		
     }
 	
-	
+
 }
 
 
