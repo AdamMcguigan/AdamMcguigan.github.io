@@ -27,10 +27,8 @@ var gamertag;
 //Function to split a string and output the players gamertag
 function splitFunction() 
 {
-  //var str = "?gamer_tag=Phil";
+  
   var result = url.split("="); // Splits string based on =
-  //alert(result[0]);
- // alert(result[1]);
  gamertag = result[1];
  
 }
@@ -42,6 +40,21 @@ var string2 = gamertag;
 var username = string1.concat(string2);
 
 ///////////////////////////////////////////////////////////////////////////////////////////
+function buttonOnClick() 
+{
+  // alert("Booooommmmmm!!!");
+  console.log("Button Pressed");
+  updateScore();
+  
+// function onPage() {
+  // Using JSON and Local Storage for
+  // GameState Management
+  var gameObj = 
+  {
+    'w': 1,
+
+  };
+}
 /* function onPageLoad() {
   // Using JSON and Local Storage for
   // GameState Management
@@ -110,7 +123,7 @@ var username = string1.concat(string2);
 
   updateScore();
 
-}
+}*/
 
 // Update the player score
 function updateScore() 
@@ -119,21 +132,19 @@ function updateScore()
 
   if (isNaN(current_score)) 
   {
-    localStorage.setItem('score', 0);
+    localStorage.setItem('score');
     document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
   } 
+  
   else 
   {
     localStorage.setItem('score', parseInt(current_score) + 1);
     document.getElementById("SCORE").innerHTML = " [ " + current_score + " ] ";
   }
 
-} */
+} 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 //function to draw the players health bar
 function drawHealthbar() 
 {
@@ -253,7 +264,8 @@ playerSprite.src = "./img/hulk.png";
 var enemySprite = new Image();
 enemySprite.src = "./img/ryuk.png";
 
-var audio = new Audio('rightFinalOne.mp3');
+// var audio = new Audio('rightFinalOne.mp3');
+var audio = new Audio('buttonsound2.mp3');
 var cyberpunk = new Audio('Cyberpunk 2077 Hype.mp3');
 var minecraft = new Audio('C418 - Sweden - Minecraft Volume Alpha.mp3');
 var undertale = new Audio('Undertale - Megalovania.mp3');
@@ -338,13 +350,6 @@ function animate()
 		context.fillText(username, 100,100);
 		context.fillText(score, 100,200);
 		
-		
-		//var scoreOutput = "Score = ";
-    
-		//var scoreString = scoreOutput.concat(score);
-   
-		//context.fillText(scoreString , 200, 20);
-			
 			for(i = 0; i < gameobjects.length; i++)
 			{
 				context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0 ,40, 55, gameobjects[0].x, gameobjects[0].y, 190, 190); //change the values just after current frame to change whats drawn for the sprites
@@ -372,6 +377,7 @@ function update()
     // Iterate through all GameObjects
     // Updating position and gamestate
     // console.log("Update");
+	
 	
     for (i = 0; i < gameobjects.length; i++) 
 	{
@@ -448,6 +454,8 @@ function update()
 			}
 			
     }
+	
+	
 }
 
 document.getElementById("buttonUp").onmouseup = function() {ButtonUp()};
@@ -463,6 +471,8 @@ function LeftbuttonOnClick()
 	gamerInput = new GamerInput("Left");
 	audio.play();
 	score = score + 1;
+	buttonOnClick();
+	
 }
 
 //function for the right input
@@ -471,6 +481,8 @@ function RightbuttonOnClick()
 	gamerInput = new GamerInput("Right");
 	audio.play();
 	score = score + 1;
+	buttonOnClick();
+	
 }
 
 //function for the up input
@@ -479,6 +491,8 @@ function UpbuttonOnClick()
 	gamerInput = new GamerInput("Up");
 	audio.play();
 	score = score + 1;
+	buttonOnClick();
+	
 }
 
 //function for the down input 
@@ -487,6 +501,8 @@ function DownbuttonOnClick()
 	gamerInput = new GamerInput("Down");
 	audio.play();
 	score = score + 1;
+	buttonOnClick();
+	
 }
 
 function ButtonUp()
@@ -497,9 +513,7 @@ function ButtonUp()
 var x = 0,
     y = 1300;
 	
-	
-	
-	
+
 // Draw GameObjects to Console
 // Modify to Draw to Screen
 function draw() 

@@ -1,5 +1,12 @@
 /* Button Styling */
 
+
+#SCORE {
+	color: Green;
+	position: absolute;
+	top: 100px;
+	left: 10px;
+}
 .button {
   background-color: #000000;
   border: none;
