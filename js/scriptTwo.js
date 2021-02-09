@@ -55,7 +55,7 @@ function buttonOnClick()
 
   };
 }
-/* function onPageLoad() {
+function onPageLoad() {
   // Using JSON and Local Storage for
   // GameState Management
   var gameObjects = {
@@ -123,7 +123,7 @@ function buttonOnClick()
 
   updateScore();
 
-}*/
+}
 
 // Update the player score
 function updateScore() 
