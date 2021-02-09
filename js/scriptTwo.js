@@ -265,8 +265,8 @@ playerSprite.src = "./img/hulk.png";
 var enemySprite = new Image();
 enemySprite.src = "./img/ryuk.png";
 
-// var audio = new Audio('rightFinalOne.mp3');
-var audio = new Audio('buttonsound2.mp3');
+var audio = new Audio('rightFinalOne.mp3');
+// var audio = new Audio('buttonsound2.mp3');
 var cyberpunk = new Audio('Cyberpunk 2077 Hype.mp3');
 var minecraft = new Audio('C418 - Sweden - Minecraft Volume Alpha.mp3');
 var undertale = new Audio('Undertale - Megalovania.mp3');
