@@ -9,7 +9,7 @@ var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var playerHealth = 110;
 var score = 0;
-
+// var playerXPosition
 //The GameObjects
 function GameObject(name, img, health) 
 {
@@ -98,16 +98,16 @@ function onPageLoad() {
     } 
 	else 
 	{
-      var text = data["Pawns"];
-      console.log(text);
-      var text = data["Grunts"];
-      console.log(text);
-      var text = data["Boss"];
-      console.log(text);
+      gameobjects[0].x  = data["xPosition"];
+      console.log(gameobjects[0].x);
+      gameobjects[0].y = data["yPosition"];
+      console.log(gameobjects[0].y);
+      playerHealth = data["Health"]; 
+      console.log(playerHealth);
     }
   });
 
-  // Reading File from a Server
+/*   // Reading File from a Server
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -123,6 +123,7 @@ function onPageLoad() {
 
   updateScore();
 
+} */
 }
 
 // Update the player score
