@@ -9,6 +9,9 @@ var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var playerHealth = 110;
 var score = 0;
+
+var xPositionPlayer;
+var yPositionPlayer;
 // var playerXPosition
 //The GameObjects
 function GameObject(name, img, health) 
@@ -58,11 +61,17 @@ function buttonOnClick()
 function onPageLoad() {
   // Using JSON and Local Storage for
   // GameState Management
+
+	gameobjects[0].x = xPositionPlayer;
+	gameobjects[0].y = yPositionPlayer;
+
   var gameObjects = {
     'pawn': 1,
     'worker': 2,
     'boss': 3
   };
+
+
 
   // Game objects as JSON
   localStorage.setItem('gameObjects', JSON.stringify(gameObjects));
@@ -98,10 +107,10 @@ function onPageLoad() {
     } 
 	else 
 	{
-      gameobjects[0].x  = data["xPosition"];
-      console.log(gameobjects[0].x);
-      gameobjects[0].y = data["yPosition"];
-      console.log(gameobjects[0].y);
+      xPositionPlayer = data["xPosition"];
+      console.log(xPositionPlayer);
+      yPositionPlayer = data["yPosition"];
+      console.log(yPositionPlayer);
       playerHealth = data["Health"]; 
       console.log(playerHealth);
     }
@@ -292,7 +301,6 @@ var gameobjects = [Player, Npc];
 gameobjects[0].x = 100;
 gameobjects[0].y = 100;
 
-
 gameobjects[1].x = 1200;
 gameobjects[1].y = 650;
 
@@ -378,7 +386,6 @@ function update()
     // Iterate through all GameObjects
     // Updating position and gamestate
     // console.log("Update");
-	
 	
     for (i = 0; i < gameobjects.length; i++) 
 	{
