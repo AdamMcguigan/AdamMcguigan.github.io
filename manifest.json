@@ -37,5 +37,13 @@
    "type": "image\/png",
    "density": "4.0"
   }
- ]
+ ],
+ 
+  "theme_color": "#ffffff",
+    "background_color": "#000000",
+    "display": "minimal-ui",
+    "orientation": "landscape",
+    "scope": "/",
+    "start_url": "/index.html"
+	
 }
