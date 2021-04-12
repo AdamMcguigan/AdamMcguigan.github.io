@@ -2,9 +2,9 @@ var cacheName = 'AdamMcguigans-pwa';
 var filesToCache = [
   '/',
   '/index.html',
-  '/example.html',
-  '/css/push.css',
-  '/js/scriptTwo.js'
+  '/UI-Project.html',
+  '/cssTwo/push/push.css',
+  '/jsTwo/scriptTwo.js'
 ];
 
 /* Cache contents when Offline See Cache */
