@@ -270,6 +270,11 @@ canvas
 	
 }
 
+.img {
+	max-width: 100%
+	display: block;
+}
+
 /* #game */
 /* { */
 	/* width: 100vw; */
