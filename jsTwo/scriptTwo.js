@@ -10,9 +10,16 @@ var background = new Image();
 background.src = './imgTwo/background.jpg';
 var gunImage = new Image();
 gunImage.src = './imgTwo/gun.jpg';
+var longSword = new Image();
+longSword.src = './imgTwo/w_longsword_cold.png';
+var magicStaff = new Image();
+magicStaff.src = './imgTwo/$Staff.png';
+var healingPotion = new Image();
+healingPotion.src = './imgTwo/mana.png';
 
-
-
+var meleeAttackCalled = false;
+var rangedAttackCalled = false;
+var healPlayerCalled = false;
 //The GameObjects
 function GameObject(name, img, health) 
 {
@@ -250,16 +257,45 @@ function animate()
 				
 		drawHealthbar();
 		drawHealthbarNPC();
+		
+		if(meleeAttackCalled == true)
+		{
+			var longSwordPosX = gameobjects[0].x;
+			var longSwordPosY = gameobjects[0].y;
+			context.drawImage(longSword,longSwordPosX + 30,longSwordPosY,50,50);
+	        console.log("drawing the sword Sprite");
+		}
+		
+		if(rangedAttackCalled == true)
+		{
+			var magicStaffPosX = gameobjects[0].x;
+			var magicStaffPosY = gameobjects[0].y;
+			context.drawImage(magicStaff,magicStaffPosX + 20,magicStaffPosY,200,200);
+			console.log("drawing the magic staff Sprite");
+		}
+		
+		if(healPlayerCalled == true)
+		{
+			var healingPotionPosX = gameobjects[0].x;
+			var healingPotionPosY = gameobjects[0].y;
+			context.drawImage(healingPotion,healingPotionPosX + 40,healingPotionPosY + 25,30,30);
+			console.log("drawing the healing Potion");
+		}
 				
 }
 
 //////////////////////////////////////////////////////////////////
 function moveForwardPlayer()
 {
-	gamerInput = new GamerInput("right");
+	gamerInput = new GamerInput("right"); // this is just for the button press 
 	gameobjects[0].x += 10;
 	console.log("player pushed forward");
+	healPlayerCalled = false;
+	rangedAttackCalled = false;
+	meleeAttackCalled = false;
 }
+
+
 
 function rangedAttackPlayer()
 {
@@ -272,13 +308,23 @@ function rangedAttackPlayer()
 		console.log("player used ranged attack");
 	}
 	//call an animate function for the gun
-	context.drawImage(gunImage,0,0,xPositionPlayer,yPositionPlayer);	
+	// context.drawImage(gunImage,0,0,xPositionPlayer,yPositionPlayer);
+	meleeAttackCalled = false;
+	rangedAttackCalled = true;
+	healPlayerCalled = false;
+	return rangedAttackCalled;
 }
 
 function healPlayer()
 {
 	playerHealth += 5;
+	healPlayerCalled = true;
+	rangedAttackCalled = false;
+	meleeAttackCalled = false;
+	return healPlayerCalled;
 }
+
+
 
 function meleeAttack()
 {
@@ -287,6 +333,11 @@ function meleeAttack()
 	{
 		npcHealth -= 10;
 	}
+	
+	rangedAttackCalled = false;
+	meleeAttackCalled = true;
+	healPlayerCalled = false;
+	return meleeAttackCalled;
 	
 }
 ///////////////////////////////////////////////////////////////////
@@ -433,7 +484,8 @@ function draw()
 		
     }
 	
-
+	
+	
 }
 
 
