@@ -277,9 +277,9 @@ canvas
 
 canvas#game
 {
-	width: 50vw;
-	height: 50vh;
-	max-width: 100%;
+	width: 50%;
+	/* height: 50vh; */
+	/* max-width: 100%; */
 	
 	
 }
