@@ -275,11 +275,11 @@ canvas
 	/* display: block; */
 /* } */
 
-/* canvas#game */
-/* { */
-	/* width: 50vw; */
-	/* height: 50vh; */
-	/* /* max-width: 100%; */ */
+canvas#game
+{
+	width: 50vw;
+	height: 50vh;
+	max-width: 100%;
 	
 	
-/* } */
+}
