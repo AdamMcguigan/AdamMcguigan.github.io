@@ -277,9 +277,12 @@ canvas
 
 canvas#game
 {
-	width: 50%;
-	/* height: 50vh; */
-	/* max-width: 100%; */
+	/* position: absolute; */
+	/* top: 300; */
+	/* left: 400; */
+	max-width: 1440px;
+	height: 600px; 
+	
 	
 	
 }
