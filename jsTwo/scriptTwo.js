@@ -22,7 +22,7 @@ var healingPotion = new Image();
 healingPotion.src = './imgTwo/mana.png';
 
 var fireball = new Image();
-fireball.src ='./imgTwo/fireballSpriteSheet.png';
+fireball.src ='./imgTwo/fireballSpriteSheetWizard.png';
 
 var meleeAttackCalled = false;
 var rangedAttackCalled = false;
