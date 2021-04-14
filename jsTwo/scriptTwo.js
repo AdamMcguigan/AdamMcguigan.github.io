@@ -213,7 +213,7 @@ function update()
 		{
 			
 			fireballPosX += 10;
-			if(fireballPosX >= 1440)
+			if(fireballPosX >= gameobjects[1].x + 30 )
 			{
 				fireballPosX = gameobjects[0].x;
 				rangedAttackCalled = false;
@@ -306,7 +306,7 @@ function animate()
 			context.drawImage(fireball, (fireball.width / frames) * currentFrame, 256 ,64, 80, fireballPosX, magicStaffPosY, 100, 100);
 			if(fireballPosX >= gameobjects[1].x)
 			{
-				npcHealth -= 0.5;
+				npcHealth -= 5;
 			}
 			console.log("drawing the magic staff Sprite");
 		}
