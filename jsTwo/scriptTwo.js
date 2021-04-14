@@ -8,14 +8,21 @@ var score = 0;
 
 var background = new Image();
 background.src = './imgTwo/background.jpg';
+
 var gunImage = new Image();
 gunImage.src = './imgTwo/gun.jpg';
+
 var longSword = new Image();
 longSword.src = './imgTwo/w_longsword_cold.png';
+
 var magicStaff = new Image();
 magicStaff.src = './imgTwo/$Staff.png';
+
 var healingPotion = new Image();
 healingPotion.src = './imgTwo/mana.png';
+
+var fireball = new Image();
+fireball.src ='./imgTwo/fireballSpriteSheet.png';
 
 var meleeAttackCalled = false;
 var rangedAttackCalled = false;
@@ -196,6 +203,30 @@ function input(event) {
 
 }
 
+
+var fireballPosX = gameobjects[0].x;
+
+function update()
+{
+	
+	while(rangedAttackCalled == true)
+		{
+			
+			fireballPosX += 10;
+			if(fireballPosX >= 1440)
+			{
+				fireballPosX = gameobjects[0].x;
+				rangedAttackCalled = false;
+			}
+			return fireballPosX;
+			
+		}
+		
+	
+		
+		
+}
+
 // Total Frames
 var frames = 4;
 
@@ -266,11 +297,17 @@ function animate()
 	        console.log("drawing the sword Sprite");
 		}
 		
+		
 		if(rangedAttackCalled == true)
 		{
 			var magicStaffPosX = gameobjects[0].x;
-			var magicStaffPosY = gameobjects[0].y;
+		    var magicStaffPosY = gameobjects[0].y; 
 			context.drawImage(magicStaff,magicStaffPosX + 20,magicStaffPosY,200,200);
+			context.drawImage(fireball, (fireball.width / frames) * currentFrame, 256 ,64, 80, fireballPosX, magicStaffPosY, 100, 100);
+			if(fireballPosX >= gameobjects[1].x)
+			{
+				npcHealth -= 0.5;
+			}
 			console.log("drawing the magic staff Sprite");
 		}
 		
@@ -301,14 +338,14 @@ function rangedAttackPlayer()
 {
 	gamerInput = new GamerInput("left");
 	var distance = gameobjects[0].x - gameobjects[1].x;
-	
-	if(gameobjects[0].x >= distance)
-	{
-		npcHealth -= 15;
+	//if(gameobjects[0].x >= distance) //&& fireball.x == gameobjects[1].x)
+	//{
+		
+		
 		console.log("player used ranged attack");
-	}
-	//call an animate function for the gun
-	// context.drawImage(gunImage,0,0,xPositionPlayer,yPositionPlayer);
+		
+	//}
+	
 	meleeAttackCalled = false;
 	rangedAttackCalled = true;
 	healPlayerCalled = false;
@@ -491,7 +528,7 @@ function draw()
 
 function gameloop() 
 {
-    //update();
+    update();
     draw();
 	animate();
     window.requestAnimationFrame(gameloop);
