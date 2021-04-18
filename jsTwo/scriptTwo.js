@@ -24,8 +24,12 @@ healingPotion.src = './imgTwo/mana.png';
 var fireball = new Image();
 fireball.src ='./imgTwo/fireballSpriteSheetwizard.png';
 
+var fireballEnemy = new Image();
+fireballEnemy.src = './imgTwo/fireballSpriteSheet.png';
+
 var meleeAttackCalled = false;
 var rangedAttackCalled = false;
+var rangedAttackCalledNPC = false;
 var healPlayerCalled = false;
 //The GameObjects
 function GameObject(name, img, health) 
@@ -163,11 +167,15 @@ playerSprite.src = "./imgTwo/odin.png";
 var enemySprite = new Image();
 enemySprite.src = "./imgTwo/leviathan.png";
 
+////////////////////////////////////////////////////AUDIO LOADING BELOW//////////////////////////////////////
 var audio = new Audio('buttonSound2.mp3');
-// var audio = new Audio('buttonsound2.mp3');
 var cyberpunk = new Audio('Cyberpunk 2077 Hype.mp3');
 var minecraft = new Audio('C418 - Sweden - Minecraft Volume Alpha.mp3');
 var undertale = new Audio('Undertale - Megalovania.mp3');
+var swordAudio = new Audio('SwordSound.mp3');
+var fireballAudio = new Audio('fireBallSoundEffect.mp3');
+var healingAudio = new Audio('HealingSoundEffect.mp3');
+var movementAudio = new Audio('GallopingSoundEffect.mp3');
 
 function GamerInput(input) 
 {
@@ -205,13 +213,14 @@ function input(event) {
 
 
 var fireballPosX = gameobjects[0].x;
+var fireballNPCPosX = gameobjects[1].x;
 
 function update()
 {
 	
 	while(rangedAttackCalled == true)
 		{
-			
+			fireballAudio.play();
 			fireballPosX += 10;
 			if(fireballPosX >= gameobjects[1].x + 30 )
 			{
@@ -219,6 +228,18 @@ function update()
 				rangedAttackCalled = false;
 			}
 			return fireballPosX;
+			
+		}
+		
+		while(rangedAttackCalledNPC == true)
+		{
+			fireballNPCPosX -= 10;
+			if(fireballNPCPosX <= gameobjects[0].x - 30)
+			{
+				fireballNPCPosX = gameobjects[1].x;
+				rangedAttackCalledNPC = false;
+			}
+			return fireballNPCPosX;
 			
 		}
 		
@@ -318,12 +339,26 @@ function animate()
 			context.drawImage(healingPotion,healingPotionPosX + 40,healingPotionPosY + 25,30,30);
 			console.log("drawing the healing Potion");
 		}
+		
+		if(rangedAttackCalledNPC == true)
+		{
+			var enemyPosX = gameobjects[1].x;
+			var enemyPosY = gameobjects[1].y; 
+			//context.drawImage(magicStaff,magicStaffPosX + 20,magicStaffPosY,200,200);
+			context.drawImage(fireballEnemy, (fireballEnemy.width / frames) * currentFrame, 0 ,64, 80, fireballNPCPosX - 20, enemyPosY, 100, 100);
+			if(fireballNPCPosX <= gameobjects[0].x)
+			{
+				playerHealth -= 1;
+			}
+			console.log("drawing the fireball Sprite");
+		}
 				
 }
 
 //////////////////////////////////////////////////////////////////
 function moveForwardPlayer()
 {
+	movementAudio.play();
 	gamerInput = new GamerInput("right"); // this is just for the button press 
 	gameobjects[0].x += 10;
 	console.log("player pushed forward");
@@ -354,6 +389,7 @@ function rangedAttackPlayer()
 
 function healPlayer()
 {
+	healingAudio.play();
 	playerHealth += 5;
 	healPlayerCalled = true;
 	rangedAttackCalled = false;
@@ -369,6 +405,7 @@ function meleeAttack()
 	if(gameobjects[0].x >= 350 && gameobjects[1].x >= 200)
 	{
 		npcHealth -= 10;
+		swordAudio.play();
 	}
 	
 	rangedAttackCalled = false;
@@ -387,7 +424,9 @@ function moveForwardNPC()
 
 function rangedAttackNPC()
 {
-	//playerHealth -=15;
+	rangedAttackCalledNPC = true;
+	return rangedAttackCalledNPC;
+	
 	
 }
 
