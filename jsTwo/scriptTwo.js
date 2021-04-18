@@ -173,7 +173,7 @@ var cyberpunk = new Audio('Cyberpunk 2077 Hype.mp3');
 var minecraft = new Audio('C418 - Sweden - Minecraft Volume Alpha.mp3');
 var undertale = new Audio('Undertale - Megalovania.mp3');
 var swordAudio = new Audio('SwordSound.mp3');
-var fireballAudio = new Audio('fireBallSoundEffect.mp3');
+var fireballAudio = new Audio('FireballSoundEffect.mp3');
 var healingAudio = new Audio('HealingSoundEffect.mp3');
 var movementAudio = new Audio('GallopingSoundEffect.mp3');
 
