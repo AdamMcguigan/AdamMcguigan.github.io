@@ -27,10 +27,18 @@ fireball.src ='./imgTwo/fireballSpriteSheetwizard.png';
 var fireballEnemy = new Image();
 fireballEnemy.src = './imgTwo/fireballSpriteSheet.png';
 
+var dragonClaw = new Image();
+dragonClaw.src = './imgTwo/dragonClaw.png';
+
+var healingSprite = new Image();
+healingSprite.src = './imgTwo/HealingSpriteSheet.png';
+
 var meleeAttackCalled = false;
 var rangedAttackCalled = false;
 var rangedAttackCalledNPC = false;
 var healPlayerCalled = false;
+var meleeAttackCalledNpc = false;
+var healNpcCalled = false;
 //The GameObjects
 function GameObject(name, img, health) 
 {
@@ -176,6 +184,9 @@ var swordAudio = new Audio('SwordSound.mp3');
 var fireballAudio = new Audio('FireballSoundEffect.mp3');
 var healingAudio = new Audio('HealingSoundEffect.mp3');
 var movementAudio = new Audio('GallopingSoundEffect.mp3');
+var dragonAudio = new Audio('FireballDragon.mp3');
+var dragonRoarAudio = new Audio('DragonRoar.mp3');
+var healingEffect = new Audio('healingSoundEffect2.mp3');
 
 function GamerInput(input) 
 {
@@ -233,6 +244,7 @@ function update()
 		
 		while(rangedAttackCalledNPC == true)
 		{
+			dragonAudio.play();
 			fireballNPCPosX -= 10;
 			if(fireballNPCPosX <= gameobjects[0].x - 30)
 			{
@@ -352,6 +364,24 @@ function animate()
 			}
 			console.log("drawing the fireball Sprite");
 		}
+		
+		if(meleeAttackCalledNpc == true)
+		{
+			var scratchPosX = gameobjects[0].x;
+			var scratchPosY = gameobjects[0].y
+			
+			context.drawImage(dragonClaw,scratchPosX + 25,scratchPosY,50,50);
+			console.log('drawing the npc melee attack');
+		}
+		
+		if(healNpcCalled == true)
+		{
+			var healingPosX = gameobjects[1].x;
+			var healingPosY = gameobjects[1].y;
+			var frames2 = 25;
+			context.drawImage(healingSprite, (healingSprite.width / frames) * currentFrame, 192 ,192, 192, healingPosX, healingPosY - 20, 100, 100);
+			console.log("drawing the healing SpriteSheet");
+		}
 				
 }
 
@@ -419,12 +449,17 @@ function meleeAttack()
 function moveForwardNPC()
 {
 	gameobjects[1].x -=3
+	rangedAttackCalledNPC = false;
+	meleeAttackCalledNpc = false;
+	healNpcCalled = false;
 	
 }
 
 function rangedAttackNPC()
 {
 	rangedAttackCalledNPC = true;
+	meleeAttackCalledNpc = false;
+	healNpcCalled = false;
 	return rangedAttackCalledNPC;
 	
 	
@@ -432,18 +467,27 @@ function rangedAttackNPC()
 
 function healNPC()
 {
+	healingEffect.play();
 	npcHealth += 5;
-	
+	healNpcCalled = true;
+	rangedAttackCalledNPC = false;
+	meleeAttackCalledNpc = false; 	
+	return healNpcCalled;
 }
 
 function meleeAttackNPC()
 {
+	
 	if(gameobjects[0].x >= 350 && gameobjects[1].x >= 200)
 	{
+		dragonRoarAudio.play();
 		playerHealth -= 10;
+		meleeAttackCalledNpc = true;
+		rangedAttackCalledNPC = false;
+		healNpcCalled = false;
 	}
 	
-	
+	return meleeAttackCalledNpc;
 }
 
 function randomAbilityNPC()
