@@ -360,7 +360,7 @@ function animate()
 			context.drawImage(fireballEnemy, (fireballEnemy.width / frames) * currentFrame, 0 ,64, 80, fireballNPCPosX - 20, enemyPosY, 100, 100);
 			if(fireballNPCPosX <= gameobjects[0].x)
 			{
-				playerHealth -= 1;
+				playerHealth -= 0.5;
 			}
 			console.log("drawing the fireball Sprite");
 		}
