@@ -195,6 +195,8 @@ var movementAudio = new Audio('GallopingSoundEffect.mp3');
 var dragonAudio = new Audio('FireballDragon.mp3');
 var dragonRoarAudio = new Audio('DragonRoar.mp3');
 var healingEffect = new Audio('healingSoundEffectDragon.mp3');
+var winScreenAudio = new Audio('winScreenMusicTrimmed.mp3');
+var loseScreenAudio = new Audio('loseScreenMusic.mp3');
 
 function GamerInput(input) 
 {
@@ -311,6 +313,10 @@ function animate()
 			
 			if(npcHealth <= 0)
 			{
+				winScreenAudio.play();
+				cyberpunk.pause();
+				undertale.pause();
+				minecraft.pause();
 				context.clearRect(0,0, canvas.width, canvas.height);
 				gameobjects[0].x = 5000;
 				gameobjects[0].y = 5000;
@@ -325,6 +331,10 @@ function animate()
 			
 			if(playerHealth <= 0)
 			{
+				loseScreenAudio.play();
+				cyberpunk.pause();
+				undertale.pause();
+				minecraft.pause();
 				context.clearRect(0,0, canvas.width, canvas.height);
 				gameobjects[0].x = 5000;
 				gameobjects[0].y = 5000;
