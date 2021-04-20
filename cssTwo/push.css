@@ -272,7 +272,10 @@ canvas
 
 body
 {
-color: #FFC0CB;
+	color: #FFC0CB;
+	text-shadow: 3px 3px 3px #3CE6B0;
+	font-family: fantasy;
+	font-size: 25px;
 
 }
 
@@ -283,9 +286,9 @@ color: #FFC0CB;
 
 /* canvas#game */
 /* { */
-	/* /* position: absolute; */ */
-	/* /* top: 300; */ */
-	/* /* left: 400; */ */
+	/* /* position: absolute; */ 
+	/* /* top: 300; */ 
+	/* /* left: 400; */ 
 	/* max-width: 1440px; */
 	/* height: 600px;  */
 	
