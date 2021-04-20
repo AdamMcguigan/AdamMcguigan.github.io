@@ -336,9 +336,24 @@ function animate()
 			
 			if(helpScreenCalled == true)
 			{
+				gamerInput = new GamerInput("Helpbutton");
 				console.log("drawing the helpScreen sprite");
 				//gamerInput = new GamerInput("Helpbutton");
+				context.clearRect(0,0, canvas.width, canvas.height);
 				context.drawImage(helpScreen,0,0,1440,600);
+				document.onkeydown = function(evt)
+				{
+				 // var x = event.keyCode;
+				  evt = evt || window.event;
+				  if(evt.keyCode == 27)
+				  {  // 27 is the ESC key
+					context.clearRect(0,0, canvas.width, canvas.height);
+					context.drawImage(background,0,0,1440,600);
+					helpScreenCalled = false;
+				  }
+				}
+				//helpScreenCalled = false;
+				return helpScreenCalled;
 			}
 				
 		drawHealthbar();
@@ -605,6 +620,8 @@ function HelpbuttonOnClick()
 {
 	//console.log("drawing the helpScreen sprite");
 	gamerInput = new GamerInput("Helpbutton");
+	helpScreenCalled = true;
+	return helpScreenCalled;
 	//context.drawImage(helpScreen,0,0,1440,600);
 	//if statement for esc to be pressed
 }
