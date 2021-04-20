@@ -255,6 +255,11 @@ function update()
 			
 		}
 		
+		if(npcHealth <= 0)
+		{
+			fireballEnemy.x = 10000;
+			fireballEnemy.y = 10000;
+		}
 	
 		
 		
@@ -301,9 +306,11 @@ function animate()
 				context.clearRect(0,0, canvas.width, canvas.height);
 				gameobjects[0].x = 5000;
 				gameobjects[0].y = 5000;
-				gameobjects[1].x = 10000;
-				gameobjects[1].y = 10000;
+				gameobjects[1].x = -5000;
+				gameobjects[1].y = -5000;
 				context.drawImage(gameOverSprite,0,0,1440,600);
+				fireballEnemy.x = 10000;
+				fireballEnemy.y = 10000;
 				console.log("Drawing the game over sprite");
 				
 			}
@@ -402,15 +409,8 @@ function moveForwardPlayer()
 function rangedAttackPlayer()
 {
 	gamerInput = new GamerInput("left");
-	var distance = gameobjects[0].x - gameobjects[1].x;
-	//if(gameobjects[0].x >= distance) //&& fireball.x == gameobjects[1].x)
-	//{
-		
-		
-		console.log("player used ranged attack");
-		
-	//}
-	
+	//var distance = gameobjects[0].x - gameobjects[1].x;
+	console.log("player used ranged attack");
 	meleeAttackCalled = false;
 	rangedAttackCalled = true;
 	healPlayerCalled = false;
@@ -499,27 +499,31 @@ function randomAbilityNPC()
 	}
 	if(gameobjects[1].x >= 150)
 	{
-
+		
 		if(random === 1)
-				{
-					moveForwardNPC();
-					console.log("NPC moving forward");
-				}
-				if(random === 2)
-				{
-					meleeAttackNPC();
-					console.log("NPC used melee attack");
-				}
-				if(random === 3)
-				{
-					rangedAttackNPC();
-					console.log("NPC used ranged attack");
-				}
-				if(random === 4)
-				{
-					healNPC();
-					console.log("NPC healed");
-				}
+		{
+			moveForwardNPC();
+			//rangedAttackNPC();
+			console.log("NPC moving forward");
+		}
+		if(random === 2)
+		{
+			meleeAttackNPC();
+			//rangedAttackNPC();
+			console.log("NPC used melee attack");
+		}
+		if(random === 3)
+		{
+			rangedAttackNPC();
+			console.log("NPC used ranged attack");
+		}
+		if(random === 4)
+		{
+			healNPC();
+			//rangedAttackNPC();
+			console.log("NPC healed");
+		}
+		
 	}
 
 }
@@ -539,8 +543,7 @@ function LeftbuttonOnClick()
 	rangedAttackPlayer();
 	console.log("Player used ranged attack");
 	score = score + 1;
-	randomAbilityNPC();
-	
+	setTimeout(randomAbilityNPC(),5000);
 }
 
 //function for moving the player forward 
@@ -551,7 +554,8 @@ function RightbuttonOnClick()
 	score = score + 1;
 	moveForwardPlayer();
 	console.log("Moving Forward");
-	randomAbilityNPC();
+	setTimeout(randomAbilityNPC(),5000); //This function here tells the function to wait 5000 miliseconds before activating
+	//randomAbilityNPC();
 	
 }
 
@@ -563,8 +567,8 @@ function UpbuttonOnClick()
 	score = score + 1;
 	healPlayer();
 	console.log("Player Healed");
-	randomAbilityNPC();
-	
+	setTimeout(randomAbilityNPC(),5000);
+
 }
 
 //function for the down input 
@@ -575,8 +579,7 @@ function DownbuttonOnClick()
 	score = score + 1;
 	meleeAttack();
 	console.log("Player used melee attack");
-	randomAbilityNPC();
-	
+	setTimeout(randomAbilityNPC(),5000);
 }
 
 function ButtonUp()
