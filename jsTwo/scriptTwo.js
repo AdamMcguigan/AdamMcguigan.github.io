@@ -186,7 +186,7 @@ var healingAudio = new Audio('HealingSoundEffect.mp3');
 var movementAudio = new Audio('GallopingSoundEffect.mp3');
 var dragonAudio = new Audio('FireballDragon.mp3');
 var dragonRoarAudio = new Audio('DragonRoar.mp3');
-var healingEffect = new Audio('healingSoundEffect2.mp3');
+var healingEffect = new Audio('healingSoundEffectDragon.mp3');
 
 function GamerInput(input) 
 {
