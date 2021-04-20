@@ -33,12 +33,20 @@ dragonClaw.src = './imgTwo/dragonClaw.png';
 var healingSprite = new Image();
 healingSprite.src = './imgTwo/HealingSpriteSheet.png';
 
+var helpScreen = new Image();
+helpScreen.src = './imgTwo/HelpScreen.png';
+
 var meleeAttackCalled = false;
 var rangedAttackCalled = false;
 var rangedAttackCalledNPC = false;
 var healPlayerCalled = false;
 var meleeAttackCalledNpc = false;
 var healNpcCalled = false;
+
+var helpScreenCalled = false;
+
+	
+
 //The GameObjects
 function GameObject(name, img, health) 
 {
@@ -325,6 +333,13 @@ function animate()
 				context.drawImage(loseScreen,0,0,1440,600);
 				console.log("Drawing the game over sprite");
 			}
+			
+			if(helpScreenCalled == true)
+			{
+				console.log("drawing the helpScreen sprite");
+				//gamerInput = new GamerInput("Helpbutton");
+				context.drawImage(helpScreen,0,0,1440,600);
+			}
 				
 		drawHealthbar();
 		drawHealthbarNPC();
@@ -532,6 +547,7 @@ document.getElementById("buttonUp").onmouseup = function() {ButtonUp()};
 document.getElementById("buttonDown").onmouseup = function() {ButtonUp()};
 document.getElementById("buttonLeft").onmouseup = function() {ButtonUp()};
 document.getElementById("buttonRight").onmouseup = function() {ButtonUp()};
+document.getElementById("Helpbutton").onmouseup = function() {ButtonUp()};
 
 
 
@@ -580,6 +596,17 @@ function DownbuttonOnClick()
 	meleeAttack();
 	console.log("Player used melee attack");
 	setTimeout(randomAbilityNPC(),5000);
+}
+
+
+
+//function for the help button
+function HelpbuttonOnClick()
+{
+	//console.log("drawing the helpScreen sprite");
+	gamerInput = new GamerInput("Helpbutton");
+	//context.drawImage(helpScreen,0,0,1440,600);
+	//if statement for esc to be pressed
 }
 
 function ButtonUp()
