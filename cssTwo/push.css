@@ -312,11 +312,30 @@ canvas#game
 	
 }
 
+/*--------------------------------------------HELP BUTTON BELOW ------------------------------------*/
+#Helpbutton
+{
+  position: absolute;
+  top: 640px;
+  left: 100px;
+  background-color: #FFC0CB;
+  border: none;
+  box-shadow: 0 9px#3CE6B0;
+  padding: 30px;
+  text-align: center;
+  font-size: 28px;
+
+}
+
+
+
+
+/*-------------------------------------------- FONT BODY BELOW ------------------------------------*/
 body
 {
 	color: #FFC0CB;
 	text-shadow: 3px 3px 3px #3CE6B0;
-	font-family: fantasy;
+	font-family: stencil std, fantasy;
 	font-size: 25px;
 
 }

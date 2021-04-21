@@ -61,8 +61,8 @@ function GameObject(name, img, health)
 
 function drawHealthbar() 
 {
-  var width = 60;
-  var height = 10;
+  var width = 100;
+  var height = 20;
   var max = 100;
   var val = playerHealth;
 
