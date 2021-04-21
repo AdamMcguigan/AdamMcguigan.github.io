@@ -89,13 +89,13 @@ function drawHealthbarNPC()
 
   // Draw the background
   context.fillStyle = "#000000";
-  context.clearRect(1335, 0, width, height);
-  context.fillRect(1335, 0, width, height);
+  context.clearRect(canvas.width - 105, 0, width, height);
+  context.fillRect(canvas.width - 105, 0, width, height);
 
   // Draw the fill
   context.fillStyle = "#00FF00";
   var fillVal = Math.min(Math.max(val / max, 0), 1);
-  context.fillRect(1335, 0, fillVal * width, height);
+  context.fillRect(canvas.width - 105, 0, fillVal * width, height);
 }
 
 function musicSelection() {
@@ -299,7 +299,7 @@ function animate()
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
 		context.fillText(score, 100,200);
-		context.drawImage(background,0,0,1440,600);
+		context.drawImage(background,0,0,canvas.width,canvas.height);
 		
 		
 			
@@ -358,7 +358,7 @@ function animate()
 				  if(evt.keyCode == 27)
 				  {  // 27 is the ESC key
 					context.clearRect(0,0, canvas.width, canvas.height);
-					context.drawImage(background,0,0,1440,600);
+					context.drawImage(background,0,0,canvas.width, canvas.height);
 					helpScreenCalled = false;
 				  }
 				}
