@@ -350,7 +350,7 @@ function animate()
 				console.log("drawing the helpScreen sprite");
 				//gamerInput = new GamerInput("Helpbutton");
 				context.clearRect(0,0, canvas.width, canvas.height);
-				context.drawImage(helpScreen,0,0,1440,600);
+				context.drawImage(helpScreen,0,0,canvas.width,canvas.height);
 				document.onkeydown = function(evt)
 				{
 				 // var x = event.keyCode;
