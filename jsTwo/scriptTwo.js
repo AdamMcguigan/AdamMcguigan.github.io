@@ -299,7 +299,7 @@ function animate()
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
 		context.fillText(score, 100,200);
-		context.drawImage(background,0,0,canvas.width,canvas.height);
+		context.drawImage(background,0,0,1440,600);
 		
 		
 			

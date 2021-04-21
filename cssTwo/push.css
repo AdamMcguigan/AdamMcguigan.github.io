@@ -161,7 +161,7 @@ select {
 }
 
 
-canvas#game
+canvas
 {
 	position:absolute;
 	top:80px;
@@ -172,7 +172,7 @@ canvas#game
 	/* max-height: 50vh; */
 	width: 1440px;
 	height: 600px;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	
 }
 
@@ -183,7 +183,8 @@ canvas#game
 		position:absolute;
 		top:80px;
 		left:23%;
-		width: 50vw;
+		width: 360px;
+		height: 360px;
 	}
 }
 
