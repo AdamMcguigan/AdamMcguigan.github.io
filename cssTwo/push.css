@@ -290,8 +290,8 @@ canvas#game
 #buttonRight
 {
   position: absolute;
-  top: 750px;
-  left: 285px;
+  top: 860px;
+  left: 100px;
   background-color: #FFC0CB;
   border: none;
   box-shadow: 0 9px#3CE6B0;
