@@ -161,7 +161,7 @@ select {
 }
 
 
-canvas
+canvas#game
 {
 	position:absolute;
 	top:80px;
@@ -170,8 +170,8 @@ canvas
 	margin-right: auto;
 	/* max-width: 50vw; */
 	/* max-height: 50vh; */
-	width: 1440px;
-	height: 600px;
+	width: 360px;
+	height: 360px;
 	/* margin: 0 auto; */
 	
 }
