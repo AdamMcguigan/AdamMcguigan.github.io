@@ -60,7 +60,7 @@ splitFunction();
 
 var string1 = "Hello ";
 var string2 = gamertag;
-var username = string1.concat(string2);
+var username = string2;
 
 	
 
