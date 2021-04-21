@@ -173,6 +173,8 @@ canvas#game
 	width: 75vw;
 	height: 75vh;
 	margin: 0 auto;
+
+	object-fit: contain;
 	
 }
 
@@ -185,7 +187,12 @@ canvas#game
 		left:23%;
 		width: 50vw;
 		height: 50vh;
+		object-fit: contain;
 	}
+}
+
+.HUD{
+	max-width: 50px;
 }
 
 /*--------------------------------------------UP BUTTON BELOW ------------------------------------*/
