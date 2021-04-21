@@ -61,8 +61,8 @@ function GameObject(name, img, health)
 
 function drawHealthbar() 
 {
-  var width = 100;
-  var height = 20;
+  var width = 60;
+  var height = 10;
   var max = 100;
   var val = playerHealth;
 
@@ -340,7 +340,7 @@ function animate()
 				gameobjects[0].y = 5000;
 				gameobjects[1].x = 10000;
 				gameobjects[1].y = 10000;
-				context.drawImage(loseScreen,0,0,1440,600);
+				context.drawImage(loseScreen,0,0, canvas.width,canvas.height);
 				console.log("Drawing the game over sprite");
 			}
 			
