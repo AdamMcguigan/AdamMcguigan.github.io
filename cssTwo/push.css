@@ -189,6 +189,22 @@ canvas#game
 		height: 50vh;
 		object-fit: contain;
 	}
+	
+	#buttonUp
+	{
+		position: absolute;
+		top: 750px;
+		left: 10px;
+		background-color: #FFC0CB;
+		border: none;
+		box-shadow: 0 9px#3CE6B0;
+		padding: 30px;
+		text-align: center;
+		font-size: 28px;
+
+
+
+	}
 }
 
 .HUD{
@@ -201,7 +217,7 @@ canvas#game
 {
   position: absolute;
   top: 750px;
-  left: 800px;
+  left: 10px;
   background-color: #FFC0CB;
   border: none;
   box-shadow: 0 9px#3CE6B0;
@@ -225,7 +241,7 @@ canvas#game
 {
 	position: absolute;
   top: 750px;
-  left: 900px;
+  left: 100px;
   background-color: #FFC0CB;
   border: none;
   box-shadow: 0 9px#3CE6B0;
@@ -249,7 +265,7 @@ canvas#game
 {
   position: absolute;
   top: 750px;
-  left: 990px;
+  left: 185px;
   background-color: #FFC0CB;
   border: none;
   box-shadow: 0 9px#3CE6B0;
@@ -275,7 +291,7 @@ canvas#game
 {
   position: absolute;
   top: 750px;
-  left: 1100px;
+  left: 285px;
   background-color: #FFC0CB;
   border: none;
   box-shadow: 0 9px#3CE6B0;
