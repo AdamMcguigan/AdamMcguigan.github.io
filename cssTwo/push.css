@@ -170,8 +170,8 @@ canvas#game
 	margin-right: auto;
 	/* max-width: 50vw; */
 	/* max-height: 50vh; */
-	width: 320px;
-	height: 320px;
+	width: 360px;
+	height: 360px;
 	/* margin: 0 auto; */
 	
 }
@@ -183,8 +183,8 @@ canvas#game
 		/* position:absolute; */
 		top:80px;
 		left:23%;
-		width: 50vw;
-		height: 50vh;
+		width: 200px;
+		height: 200px;
 	}
 }
 
