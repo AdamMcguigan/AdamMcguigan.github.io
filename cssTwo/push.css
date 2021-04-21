@@ -161,11 +161,15 @@ select {
 }
 
 
-canvas
+canvas#game
 {
 	position:absolute;
 	top:100px;
 	left:23%;
+	/* max-width: 50vw; */
+	/* max-height: 50vh; */
+	/* width: 1440px; */
+	/* height: 600px;  */
 	
 }
 
@@ -284,14 +288,13 @@ body
 	/* display: block; */
 /* } */
 
-/* canvas#game */
+/* canvas */
 /* { */
-	/* /* position: absolute; */ 
-	/* /* top: 300; */ 
-	/* /* left: 400; */ 
+	/* position: absolute;  */
+	/* top: 300;  */
+	/* left: 400;  */
 	/* max-width: 1440px; */
+	/* width: 350vw; */
 	/* height: 600px;  */
-	
-	
 	
 /* } */
