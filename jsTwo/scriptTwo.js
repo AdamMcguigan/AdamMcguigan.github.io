@@ -42,8 +42,25 @@ var rangedAttackCalledNPC = false;
 var healPlayerCalled = false;
 var meleeAttackCalledNpc = false;
 var healNpcCalled = false;
-
 var helpScreenCalled = false;
+
+var url = document.location.href;
+var gamertag;
+
+//Function to split a string and output the players gamertag
+function splitFunction() 
+{
+  
+  var result = url.split("="); // Splits string based on =
+ gamertag = result[1];
+ 
+}
+
+splitFunction();
+
+var string1 = "Hello ";
+var string2 = gamertag;
+var username = string1.concat(string2);
 
 	
 
@@ -300,6 +317,7 @@ function animate()
 		context.clearRect(0,0, canvas.width, canvas.height);
 		context.fillText(score, 100,200);
 		context.drawImage(background,0,0,canvas.width,canvas.height);
+		context.fillText(username, gameobjects[0].x,gameobjects[0].y);
 		
 		
 			
