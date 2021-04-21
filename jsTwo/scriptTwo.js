@@ -299,7 +299,7 @@ function animate()
     } 
 		context.clearRect(0,0, canvas.width, canvas.height);
 		context.fillText(score, 100,200);
-		context.drawImage(background,0,0,1440,600);
+		context.drawImage(background,0,0,canvas.width,canvas.height);
 		
 		
 			
@@ -322,7 +322,7 @@ function animate()
 				gameobjects[0].y = 5000;
 				gameobjects[1].x = -5000;
 				gameobjects[1].y = -5000;
-				context.drawImage(gameOverSprite,0,0,1440,600);
+				context.drawImage(gameOverSprite,0,0,canvas.width,canvas.height);
 				fireballEnemy.x = 10000;
 				fireballEnemy.y = 10000;
 				console.log("Drawing the game over sprite");
